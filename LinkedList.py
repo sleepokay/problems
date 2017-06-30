@@ -66,3 +66,19 @@ def MergeLists(nodeA, nodeB):
             current = current.next
             
     return new_head
+
+# Floyd's algorithm for cycle detection
+def has_cycle(node):
+    if not node:
+        return 0
+    
+    turtle = node
+    hare = node
+    
+    while not hare is None and not hare.next is None:
+        turtle = turtle.next
+        hare = hare.next.next
+        
+        if turtle is hare:
+            return 1
+    return 0
