@@ -35,4 +35,24 @@ def height(node):
     right_height = 1 + height(node.right)
     
     return max(left_height, right_height)
+
+
+# print level order
+import Queue
+def levelOrder(root):
+    if not root:
+        return
+    
+    q = Queue.Queue()
+    q.put(root)
+    
+    while not q.empty():
+        node = q.get()
+        sys.stdout.write(str(node.data) + ' ')
+        
+        if node.left:
+            q.put(node.left)
+        if node.right:
+            q.put(node.right)
+       
     
